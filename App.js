@@ -1,37 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import React, {useState} from 'react';
+import App1 from './App1.js'; // Import App1
+import App2 from './App2.js'; // Import App2
 export default function App() {
-  // Estado para almacenar la fecha ingresada
-  const [fecha, setFecha] = useState('');
-  // Estado para almacenar el resultado de la edad
-  const [resultado, setResultado] = useState(null);
-/**
-   * Función que realiza la edad de la fecha.
-    * Convierte la fecha ingresada en un objeto Date y calcula la diferencia en años.
-   */
-const edad = () => {
-  var hoy = new Date();
-  var cumpleanos = new Date(fecha);
-  var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+  const [showApp1, setShowApp1] = useState(false);
+  const [showApp2, setShowApp2] = useState(false);
 
-  setResultado("la edad es : "+edad);
-};
   return (
     <View style={styles.container}> 
-    <TextInput
-        style={styles.input}
-        placeholder="fecha de nacimiento mes/dia/año"
-        onChangeText={setFecha}
-        value={fecha}
-      />
-    {/* Botón que ejecuta la función edad al ser presionado */}
-      <Button title="Edad" onPress={edad} />
-      {/* Muestra el resultado si no es null */}
-      {resultado !== null && (
-        <Text style={styles.resultado}>Resultado: {resultado}</Text>
+   {!showApp1 ? (
+        <Button title="edad" onPress={() => setShowApp1(true)} />
+      ) : (
+        <App1 />
       )}
-    </View>
+      {!showApp2 ? (
+        <Button title="analisis de numeros " onPress={() => setShowApp2(true)} />
+      ) : (
+        <App2 />
+      )}
+        </View>
   );
 }
 
