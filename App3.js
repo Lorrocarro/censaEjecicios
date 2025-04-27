@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Button, Picker } from 'react-native';
 import React, { useState } from 'react';
 
-export default function App3() {
+export default function App() {
   const [precio, setPrecio] = useState('');
   const [etiqueta, setEtiqueta] = useState('Negra');
   const [precioFinal, setPrecioFinal] = useState(null);
@@ -48,4 +48,3 @@ const styles = StyleSheet.create({
   picker: { width: '80%', height: 50, marginBottom: 12 },
   resultado: { marginTop: 20, fontSize: 18, fontWeight: 'bold' },
 });
-

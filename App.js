@@ -1,22 +1,25 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import React, { useState } from 'react';
-import App1 from './App1.js'; // Importa App1
-import App2 from './App2.js'; // Importa App2
-import App3 from './App3.js'; // Importa App3
+import App1 from './App1';
+import App2 from './App2';
+import App3 from './App3';
+import App4 from './App4';
 
 export default function App() {
   const [pantalla, setPantalla] = useState(null);
 
   return (
-    <View style={styles.container}> 
+    <View style={styles.container}>
       {pantalla === 'App1' && <App1 />}
       {pantalla === 'App2' && <App2 />}
       {pantalla === 'App3' && <App3 />}
+      {pantalla === 'App4' && <App4 />}
       {pantalla === null && (
         <>
           <Button title="Edad" onPress={() => setPantalla('App1')} />
           <Button title="Análisis de Números" onPress={() => setPantalla('App2')} />
-          <Button title="Nueva funcionalidad" onPress={() => setPantalla('App3')} />
+          <Button title="Nueva Funcionalidad" onPress={() => setPantalla('App3')} />
+          <Button title="Análisis de Notas" onPress={() => setPantalla('App4')} />
         </>
       )}
       {pantalla !== null && <Button title="Volver" onPress={() => setPantalla(null)} />}
@@ -25,10 +28,5 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  }
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }
 });
