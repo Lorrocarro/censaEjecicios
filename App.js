@@ -1,25 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import React, {useState} from 'react';
-import App1 from './App1.js'; // Import App1
-import App2 from './App2.js'; // Import App2
+import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
+import App1 from './App1.js'; // Importa App1
+import App2 from './App2.js'; // Importa App2
+import App3 from './App3.js'; // Importa App3
+
 export default function App() {
-  const [showApp1, setShowApp1] = useState(false);
-  const [showApp2, setShowApp2] = useState(false);
+  const [pantalla, setPantalla] = useState(null);
 
   return (
     <View style={styles.container}> 
-   {!showApp1 ? (
-        <Button title="edad" onPress={() => setShowApp1(true)} />
-      ) : (
-        <App1 />
+      {pantalla === 'App1' && <App1 />}
+      {pantalla === 'App2' && <App2 />}
+      {pantalla === 'App3' && <App3 />}
+      {pantalla === null && (
+        <>
+          <Button title="Edad" onPress={() => setPantalla('App1')} />
+          <Button title="Análisis de Números" onPress={() => setPantalla('App2')} />
+          <Button title="Nueva funcionalidad" onPress={() => setPantalla('App3')} />
+        </>
       )}
-      {!showApp2 ? (
-        <Button title="analisis de numeros " onPress={() => setShowApp2(true)} />
-      ) : (
-        <App2 />
-      )}
-        </View>
+      {pantalla !== null && <Button title="Volver" onPress={() => setPantalla(null)} />}
+    </View>
   );
 }
 
@@ -29,18 +30,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-  },
-  input: {
-    width: '80%',
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    marginBottom: 12,
-    paddingHorizontal: 8,
-  },
-  resultado: {
-    marginTop: 20,
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+  }
 });
