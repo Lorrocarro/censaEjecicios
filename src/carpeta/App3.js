@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Button, Picker } from 'react-native';
 import React, { useState } from 'react';
 
-export default function App() {
+export default function App3() {
   const [precio, setPrecio] = useState('');
   const [etiqueta, setEtiqueta] = useState('Negra');
   const [precioFinal, setPrecioFinal] = useState(null);

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import React, { useState } from 'react';
 
-export default function App() {
+export default function App5() {
   const [edad, setEdad] = useState('');
   const [mensaje, setMensaje] = useState('');
 
